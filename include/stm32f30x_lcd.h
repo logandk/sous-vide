@@ -5,7 +5,7 @@
  * Wiring:
  *  1. ground
  *  2. +5V (supply)
- *  3. X ohm to supply (contrast)
+ *  3. 2.7k ohm to supply (contrast)
  *  4. pin_register_select
  *  5. ground (read/write)
  *  6. pin_enable
@@ -17,7 +17,7 @@
  * 12. pin_d5 (data)
  * 13. pin_d6 (data)
  * 14. pin_d7 (data)
- * 15. X ohm to supply (led anode)
+ * 15. 670 ohm to supply (led anode)
  * 16. ground (led cathode)
  */
 
