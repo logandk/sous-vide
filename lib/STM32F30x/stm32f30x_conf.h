@@ -34,6 +34,8 @@
 #include "stm32f30x_gpio.h"
 #include "stm32f30x_rcc.h"
 #include "stm32f30x_tim.h"
+#include "stm32f30x_exti.h"
+#include "stm32f30x_syscfg.h"
 #include "stm32f30x_misc.h"  /* High level functions for NVIC and SysTick (add-on to CMSIS functions) */
 
 /* Exported types ------------------------------------------------------------*/
