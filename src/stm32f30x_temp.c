@@ -1,16 +1,34 @@
 #include "stm32f30x_temp.h"
 #include "stm32f30x_sleep.h"
+#include "stm32f30x_timer.h"
 
-uint16_t temp_read(const temp_def *def)
+static uint8_t converting = 0;
+
+void temp_convert(const temp_def *def)
 {
-  uint16_t result;
-
   // Initiate a temperature conversion
   _temp_init(def);
   _temp_write(def, 0xcc); // Skip ROM
   _temp_write(def, 0x44); // Convert T
 
-  while (!_temp_read(def)); // Wait for conversion
+  converting = 1;
+}
+
+uint8_t temp_ready(const temp_def *def)
+{
+  if (converting && temp_read(def))
+  {
+    converting = 0;
+
+    return 1;
+  }
+
+  return 0;
+}
+
+uint16_t temp_read(const temp_def *def)
+{
+  uint16_t result;
 
   _temp_init(def);
   _temp_write(def, 0xcc); // Skip ROM
@@ -89,11 +107,16 @@ void _temp_init(const temp_def *def)
   _temp_pin_down(def);
   sleep_us(500); // Pull low for minimum 480 us
   _temp_pin_in(def);
-  sleep_us(80); // Wait 15 to 60 us
-  while (_temp_check(def));
+  sleep_us(20); // Wait 15 to 60 us
+  uint32_t presense_start = timer_now();
+  while (_temp_check(def))
+  {
+    // Presense pulse 60 to 240 us
+    if (timer_now() - presense_start > 3) break;
+  }
   _temp_pin_out(def);
   _temp_pin_up(def);
-  sleep_us(400); // Receive sequence is minimum 480 us
+  sleep_us(480); // Receive sequence is minimum 480 us
 }
 
 uint8_t _temp_check(const temp_def *def)

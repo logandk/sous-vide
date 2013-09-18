@@ -16,7 +16,7 @@ void sleep_us(uint32_t time_us)
   TIM_TimeBaseInitTypeDef tim_init;
 
   tim_init.TIM_Prescaler     = 72 - 1;
-  tim_init.TIM_Period        = 1;
+  tim_init.TIM_Period        = 65535;
   tim_init.TIM_ClockDivision = 0;
   tim_init.TIM_CounterMode   = TIM_CounterMode_Down;
 

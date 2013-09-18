@@ -21,6 +21,8 @@ typedef struct
 } temp_def;
 
 // Public interface
+void temp_convert(const temp_def *def);
+uint8_t temp_ready(const temp_def *def);
 uint16_t temp_read(const temp_def *def);
 
 // Internal functions

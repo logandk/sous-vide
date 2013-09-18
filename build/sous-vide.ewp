@@ -16,6 +16,10 @@
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
+          <name>GRuntimeLibThreads</name>
+          <state>0</state>
+        </option>
+        <option>
           <name>ExePath</name>
           <state>sous-vide\Exe</state>
         </option>
@@ -163,6 +167,10 @@
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
+          <name>CCNoLiteralPool</name>
+          <state>0</state>
+        </option>
+        <option>
           <name>CCOptimizationNoSizeConstraints</name>
           <state>0</state>
         </option>
@@ -302,6 +310,7 @@
           <state>$PROJ_DIR$\..\include</state>
           <state>$PROJ_DIR$\..\lib\STM32F30x</state>
           <state>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\inc</state>
+          <state>$PROJ_DIR$\..\lib\STM32F3_Discovery</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -403,6 +412,10 @@
         <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>AsmNoLiteralPool</name>
+          <state>0</state>
+        </option>
         <option>
           <name>AObjPrefix</name>
           <state>1</state>
@@ -616,6 +629,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>IlinkThreadsSlave</name>
+          <state>1</state>
+        </option>
         <option>
           <name>IlinkLibIOConfig</name>
           <state>1</state>
@@ -937,6 +954,12 @@
   <group>
     <name>STM32F30x_StdPeriph_Driver</name>
     <file>
+      <name>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\src\stm32f30x_exti.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\src\stm32f30x_flash.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\src\stm32f30x_gpio.c</name>
     </file>
     <file>
@@ -946,7 +969,16 @@
       <name>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\src\stm32f30x_rcc.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\src\stm32f30x_syscfg.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\lib\STM32F30x_StdPeriph_Driver\src\stm32f30x_tim.c</name>
+    </file>
+  </group>
+  <group>
+    <name>STM32F3_Discovery</name>
+    <file>
+      <name>$PROJ_DIR$\..\lib\STM32F3_Discovery\stm32f3_discovery.c</name>
     </file>
   </group>
   <group>
